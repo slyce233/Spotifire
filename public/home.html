@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SpotiFire</title>
+	<link rel="stylesheet" href="styles/main_styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="scripts/home.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous"></script>
+</head>
+  <body>
+    <div>
+      <img class="logo" src = "./images/Spotifire.png" class="py-2 px-2">
+    </div>
+    <nav class="navbar is-black">
+      <a class="navbar-item" href="/getAccount">Account</a>
+      <a class="navbar-item" href="/getAccount">Settings</a>
+      <a class="navbar-item" href="/getAccount">Logout</a>
+    </nav>
+
+    <div id="playlist-input">
+        <input type="text" id="playlist-input-field" value placeholder="Please paste your spotify playlist link here!" size="75">
+        <button class="button is-success" id="get-playlist">Analyze playlist</button>
+        <!-- <button class="button is-success" id="get-top-tracks">Top Tracks</button> -->
+        <span class="tag is-warning" id="playlist-warning" hidden>Incorrect Format</span>
+    </div>
+
+
+    <div class="playlist-info" style = "visibility:hidden">
+      <table class="playlist-info-card">
+        <tr>
+          <td>
+            <a class="playlist-image"></a> 
+          </td>
+          <td>
+            <p id = 'playlist-description'></p>
+            <p id = "playlist-followers"></p>
+          </td>
+        </tr>
+      </table>
+      </div>          
+    <!-- <div id="container"> 
+        <table id="chart">
+            <tr>
+                <td id ="bar-chart"></td>
+                <td id="pie-chart"></td>
+            </tr>
+          </table>
+    </div>    -->
+    <!-- https://open.spotify.com/playlist/37i9dQZF1DX0XUsuxWHRQd?si=5744bbbb0a9c41d6 -->
+  </body>
+</html>

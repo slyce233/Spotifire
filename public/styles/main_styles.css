@@ -1,0 +1,76 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: #0a0a0a;
+}
+text{
+    fill: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+table{
+    border-spacing: 10rem;
+    border-collapse: separate;
+}
+
+tr{
+    padding:5rem;
+}
+
+td {
+    padding:5rem;
+}
+.navbar{
+    left: 10rem;
+    position:relative;
+    width:82%;
+    display:flex;
+    justify-content: right;
+    align-items: right;
+}
+.navbar-item :hover{
+    color:#48c774;
+    background-color: #1f2330
+}
+
+.logo {
+    top:0px;
+    position: absolute;
+    max-height:7rem;
+}
+
+#login{
+    margin-top:12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ #playlist-input{
+    margin-top:10rem;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  #playlist-input-field {
+    height:40px;
+    border-radius:5px;
+  }
+  .playlist-info{
+      display: flex;
+      align-items: center;
+      justify-content: center ;
+  }
+  .playlist-image{
+      height:10px;
+      width:10px;
+  }
+.playlist-info-card{
+    width:52%;
+    border-spacing: 3rem;
+    border-collapse: separate;
+  }
