@@ -269,7 +269,7 @@ function drawpiechart(data) {
     .append("g") //set the title
     .attr("transform", "translate(" + (width / 2 - 220) + "," + 35 + ")")
     .append("text")
-    .text("Popularity Distribution of Songs")
+    .text("Popularity Distribution")
     .attr("class", "title");
 
   arc

@@ -1,0 +1,33 @@
+{
+    "name": "SpotiFire",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/slyce233/Spotifire"
+    },
+    "author": "",
+    "license": "ISC",
+    "homepage": "https://github.com/slyce233/Spotifire#readme",
+    "dependencies": {
+      "consolidate": "^0.16.0",
+      "cookie-parser": "^1.4.5",
+      "cookie-session": "^1.4.0",
+      "cors": "^2.8.5",
+      "curl": "^0.1.4",
+      "dotenv": "^8.2.0",
+      "ejs": "^3.1.6",
+      "express": "^4.17.1",
+      "fetch": "^1.1.0",
+      "fs": "0.0.1-security",
+      "request": "^2.88.2",
+      "request-promise-native": "^1.0.9",
+      "search": "^1.0.0",
+      "spotify-web-api-node": "^5.0.2",
+      "window": "^4.2.7"
+    }
+  }
