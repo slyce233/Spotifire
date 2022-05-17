@@ -66,9 +66,12 @@ td {
     border-radius:5px;
   }
   .playlist-info{
+      width:100%;
       display: flex;
       align-items: center;
       justify-content: center ;
+      margin-left: auto;
+      margin-right: auto;
   }
   .playlist-image{
       height:10px;
@@ -77,16 +80,16 @@ td {
 .playlist-info-card{
     position:absolute;
     top:15rem;
-    left:20rem;
-    width:52%;
+    margin-left: auto;
+    margin-right: auto;
     border-spacing: 3rem;
     border-collapse: separate;
   }
 
   #container{
+    width:100%;
     position:absolute;
     top:35rem;
-    left:12rem;
     display: flex;
     align-items: center;
     justify-content: center ;

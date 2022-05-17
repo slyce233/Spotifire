@@ -151,7 +151,6 @@ app.get("/callback", function (req, res) {
 app.get("/getPlaylist", function (req, res) {
   var playlistId = req.query.playlistID;
   var artistIds = new Set();
-  console.log(req);
   spotifyApi.getPlaylist(playlistId).then(function (data) {
     res.send(data);
     data.body.tracks.items.map(function (t) {
