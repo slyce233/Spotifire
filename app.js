@@ -32,6 +32,7 @@ const scopes = [
   "playlist-read-collaborative",
   "user-read-private",
   "user-read-email",
+  "user-top-read",
 ];
 
 var spotifyApi = new SpotifyWebApi({
@@ -51,6 +52,10 @@ app.get("/", function (req, res) {
 
 app.get("/home", function (req, res) {
   res.sendFile(__dirname + "/public/home.html");
+});
+
+app.get("/account", function (req, res) {
+  res.sendFile(__dirname + "/public/account.html");
 });
 
 app.get("/login", function (req, res) {
@@ -115,8 +120,6 @@ app.get("/callback", function (req, res) {
         };
         spotifyApi.setAccessToken(access_token);
         spotifyApi.setRefreshToken(refresh_token);
-        console.log("access_token: ", access_token);
-        console.log("refresh_token: ", refresh_token);
 
         setInterval(async function () {
           const data = await spotifyApi.refreshAccessToken();
@@ -148,6 +151,24 @@ app.get("/callback", function (req, res) {
   }
 });
 
+app.get("/getAccount", function (req, res) {
+  let params = {
+    access_token: spotifyApi.getAccessToken(),
+    refresh_token: spotifyApi.getRefreshToken(),
+  };
+  let searchParams = new URLSearchParams(params);
+  res.redirect("/account#" + searchParams.toString());
+});
+
+app.get("/getHome", function (req, res) {
+  let params = {
+    access_token: spotifyApi.getAccessToken(),
+    refresh_token: spotifyApi.getRefreshToken(),
+  };
+  let searchParams = new URLSearchParams(params);
+  res.redirect("/home#" + searchParams.toString());
+});
+
 app.get("/getPlaylist", function (req, res) {
   var playlistId = req.query.playlistID;
   var artistIds = new Set();
@@ -163,6 +184,18 @@ app.get("/getPlaylist", function (req, res) {
   });
 });
 
+app.get("/getMe", function (req, res) {
+  spotifyApi.getMe().then(function (data) {
+    res.send(data);
+  });
+});
+
+app.get("/getTopTracks", function (req, res) {
+  spotifyApi.getMyTopTracks().then(function (data) {
+    res.send(data);
+  });
+});
+
 app.get("/getTrack", function (req, res) {
   var trackId = req.query.trackID;
   console.log(playlistId);
@@ -172,5 +205,5 @@ app.get("/getTrack", function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log("Server is running on localhost 3000");
+  console.log("Server running on localhost 3000");
 });
