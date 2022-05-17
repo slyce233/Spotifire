@@ -6,15 +6,15 @@ var songIDs = [];
 
 $(document).ready(function () {
   $("#playlist-warning").hide();
-  $("#get-top-tracks").on("click", function () {
-    $.ajax({
-      //get playlist JSON information
-      url: "/getTopTracks",
-      type: "GET",
-    }).done(function (data) {
-      console.log(data);
-    });
-  });
+  // $("#get-top-tracks").on("click", function () {
+  //   $.ajax({
+  //     //get playlist JSON information
+  //     url: "/getTopTracks",
+  //     type: "GET",
+  //   }).done(function (data) {
+  //     console.log(data);
+  //   });
+  // });
   $("#get-playlist").on("click", function () {
     //function to start analyzing a playlist
     playlistLink = $("#playlist-input-field").val();

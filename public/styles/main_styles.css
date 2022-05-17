@@ -115,3 +115,18 @@ td {
   #playlist-followers{
     color: #fff;
 }
+
+.account-card {
+    position: absolute;
+    top:10rem;
+    left:10rem;
+    box-shadow: 0 4px 8px 0 rgba(151, 177, 138, 0.2);
+    max-width: 300px;
+    margin: auto;
+    font-family: arial;
+    background-color: #48c774;
+    border-radius: 6px;
+}
+.text-area{
+    padding:0.5rem;
+}
