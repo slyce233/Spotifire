@@ -46,12 +46,12 @@ $(document).ready(function () {
   }).done(function (data) {
     // for (let i = 0; i < data.body.items.length; i++) {
     //   songIds.push(data.body.items[i].id);
-    // }
+    // }s
     console.log("Top Artist: ", data.body.items);
   });
   var seed_artists = [
     "2YZyLoL8N0Wb9xBt1NhZWg",
-    "246dkjvS1zLTtiykXe5h60",
+    "1RyvyyTE3xzB2ZywiAwp0i",
     "0WK3H9OErSn5zKOkOV5egm",
   ];
   var seed_genres = ["rap", "hip-hop"];

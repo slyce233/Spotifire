@@ -22,8 +22,15 @@
 
     <div id="playlist-input">
         <input type="text" id="playlist-input-field" value placeholder="Please paste your spotify playlist link here!" size="75">
-        <button class="button is-success" id="get-playlist">Analyze playlist</button>
-        <!-- <button class="button is-success" id="get-top-tracks">Top Tracks</button> -->
+        <button class="button" id="get-playlist">Analyze</button>
+        <div class="dropdown">
+          <button class="dropbtn">Playlist</button>
+          <div class="dropdown-content">
+            <a href="#">Track</a>
+            <a href="#">Album</a>
+          </div>
+        </div
+        </div>
         <span class="tag is-warning" id="playlist-warning" hidden>Incorrect Format</span>
     </div>
 

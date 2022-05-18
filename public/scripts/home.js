@@ -1,24 +1,11 @@
-var accessToken;
-var playlistLink;
-var playlistID;
-var songs;
 var songIDs = [];
 
 $(document).ready(function () {
   $("#playlist-warning").hide();
-  // $("#get-top-tracks").on("click", function () {
-  //   $.ajax({
-  //     //get playlist JSON information
-  //     url: "/getTopTracks",
-  //     type: "GET",
-  //   }).done(function (data) {
-  //     console.log(data);
-  //   });
-  // });
   $("#get-playlist").on("click", function () {
     //function to start analyzing a playlist
-    playlistLink = $("#playlist-input-field").val();
-    playlistID = playlistLink.substring(34, playlistLink.length);
+    var playlistLink = $("#playlist-input-field").val();
+    var playlistID = playlistLink.substring(34, playlistLink.length);
     if (
       playlistLink.substring(0, 34) !== "https://open.spotify.com/playlist/"
     ) {
@@ -37,7 +24,7 @@ $(document).ready(function () {
         console.log(data);
         $("#bar-chart").html("");
         $("#pie-chart").html("");
-        songs = data.body.tracks.items;
+        var songs = data.body.tracks.items;
         var playlistImageLink = data.body.images[0].url; //Image to be sent out
         songs.sort(compare);
         drawbarchart(songs.slice(0, 5)); //get the top 5 most popular songs and graph them
@@ -60,7 +47,6 @@ $(document).ready(function () {
           $(".playlist-info").attr("style", "visibility:visible");
         });
         for (let i = 0; i < songs.length; i++) {
-          console.log(songs[i].track.id);
           songIDs.push(songs[i].track.id);
         }
         console.log(songIDs);
