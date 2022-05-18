@@ -129,11 +129,6 @@ app.get("/callback", function (req, res) {
           console.log("access_token: ", access_token);
         }, (expires_in / 2) * 1000);
 
-        // use the access token to access the Spotify Web API
-        request.get(options, function (error, response, body) {
-          console.log(body);
-        });
-        // we can also pass the token to the browser to make requests from there
         let params = {
           access_token: access_token,
           refresh_token: refresh_token,
@@ -177,9 +172,9 @@ app.get("/getPlaylist", function (req, res) {
     data.body.tracks.items.map(function (t) {
       t.track.artists.map(function (artists) {
         artistIds.add(artists.id);
+        console.log(artists.id);
       });
     });
-    console.log(artistIds);
     return Array.from(artistIds);
   });
 });
@@ -190,15 +185,45 @@ app.get("/getMe", function (req, res) {
   });
 });
 
+app.get("/getTopArtists", function (req, res) {
+  spotifyApi.getMyTopArtists({ time_range: "long_term" }).then(function (data) {
+    res.send(data);
+  });
+});
+
 app.get("/getTopTracks", function (req, res) {
   spotifyApi.getMyTopTracks().then(function (data) {
     res.send(data);
   });
 });
 
+app.get("/getGenreSeeds", function (req, res) {
+  spotifyApi.getAvailableGenreSeeds().then(function (data) {
+    res.send(data);
+  });
+});
+
+// getRecommendations uses just artists and genres for now
+// apply other parameters later
+app.get("/getRecommendations", function (req, res) {
+  var seed_artists = req.query.seed_artists;
+  var seed_genres = req.query.seed_genres;
+  var min_popularity = req.query.min_popularity;
+  var target_popularity = req.query.target_popularity;
+  spotifyApi
+    .getRecommendations({
+      seed_artists: seed_artists,
+      seed_genres: seed_genres,
+      min_popularity: min_popularity,
+      target_popularity: target_popularity,
+    })
+    .then(function (data) {
+      res.send(data);
+    });
+});
+
 app.get("/getTrack", function (req, res) {
   var trackId = req.query.trackID;
-  console.log(playlistId);
   spotifyApi.getTrack(trackId).then(function (data) {
     res.send(data);
   });

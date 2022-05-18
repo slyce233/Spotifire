@@ -27,9 +27,56 @@ $(document).ready(function () {
     $(".id").text("Id: " + id);
     $(".followers").text("Followers: " + followers);
   });
+
+  var topTrackIds = [];
   $.ajax({
     //get JSON information
     url: "/getTopTracks",
+    type: "GET",
+  }).done(function (data) {
+    for (let i = 0; i < data.body.items.length; i++) {
+      topTrackIds.push(data.body.items[i].id);
+    }
+    console.log("Top Tracks: ", topTrackIds);
+  });
+  $.ajax({
+    //get JSON information
+    url: "/getTopArtists",
+    type: "GET",
+  }).done(function (data) {
+    // for (let i = 0; i < data.body.items.length; i++) {
+    //   songIds.push(data.body.items[i].id);
+    // }
+    console.log("Top Artist: ", data.body.items);
+  });
+  var seed_artists = [
+    "2YZyLoL8N0Wb9xBt1NhZWg",
+    "246dkjvS1zLTtiykXe5h60",
+    "0WK3H9OErSn5zKOkOV5egm",
+  ];
+  var seed_genres = ["rap", "hip-hop"];
+  var min_popularity = 65;
+  var target_popularity = 80;
+  var recommendationIds = [];
+  $.ajax({
+    //get JSON information
+    url: "/getRecommendations",
+    type: "GET",
+    data: {
+      seed_artists: seed_artists,
+      seed_genres: seed_genres,
+      min_popularity: min_popularity,
+      target_popularity: target_popularity,
+    },
+  }).done(function (data) {
+    for (let i = 0; i < data.body.tracks.length; i++) {
+      recommendationIds.push(data.body.tracks[i].id);
+    }
+    console.log("Recommendations: ", recommendationIds);
+  });
+  $.ajax({
+    //get JSON information
+    url: "/getGenreSeeds",
     type: "GET",
   }).done(function (data) {
     console.log(data.body);
