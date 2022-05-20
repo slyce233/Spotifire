@@ -136,6 +136,45 @@ td {
     background-color: #04AA6D;
     border-radius: 6px;
 }
+.artist-grid{
+    position:absolute;
+    top:10rem;
+    left:35rem;
+    width:40%;
+}
+.artist-grid-table{
+    border-spacing: 1rem;
+    border-collapse: separate;
+}
+.artist-grid-table-2{
+    margin-left:6rem;
+    border-spacing: 1rem;
+    border-collapse: separate;
+}
+.artist-image{
+    max-height:10rem;
+}
+
+.artist-grid-desc{
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+}
+.second-row{
+    margin-left:3rem;
+}
+.top-artist-info{
+    width:200px;
+}
+
+.top-artist-name{
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
 .text-area{
     padding:0.5rem;
 }

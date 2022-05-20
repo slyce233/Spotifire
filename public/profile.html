@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="styles/main_styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="scripts/account.js"></script>
+    <script type="text/javascript" src="scripts/profile.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous"></script>
   </head>
 
@@ -17,12 +17,14 @@
         
       </div>
       <nav class="navbar is-black">
-        <a class="navbar-item" href="/getAccount">Account</a>
+        <a class="navbar-item" href="/getProfile">Profile</a>
         <a class="navbar-item" href="/getSettings">Settings</a>
         <a class="navbar-item" href="/logout">Logout</a>
       </nav>
-
-      <div class="account-card">
+      <div class="account-grid">
+        <div class="account-card"></div> 
+        <div class="artist-grid"></div>
+      </div>
         
       </div>
 

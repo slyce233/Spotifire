@@ -39,15 +39,80 @@ $(document).ready(function () {
     }
     console.log("Top Tracks: ", topTrackIds);
   });
+
   $.ajax({
     //get JSON information
     url: "/getTopArtists",
     type: "GET",
   }).done(function (data) {
-    // for (let i = 0; i < data.body.items.length; i++) {
-    //   songIds.push(data.body.items[i].id);
-    // }s
-    console.log("Top Artist: ", data.body.items);
+    var topArtistNames = [];
+    var topArtistImages = [];
+    for (let i = 0; i < data.body.items.length; i++) {
+      topArtistNames.push(data.body.items[i].name);
+      topArtistImages.push(data.body.items[i].images[2].url);
+    }
+    console.log(topArtistNames, ":", topArtistImages);
+    $(".artist-grid").html(
+      `<h1 class="artist-grid-desc">Your Top 5 Artists This Month</h1>
+      <table class="artist-grid-table">
+        <tr>
+          <td>
+            <div class = "top-artist-info">
+              <img class="artist-image" src = "` +
+        topArtistImages[0] +
+        `">
+              <p class="top-artist-name">` +
+        topArtistNames[0] +
+        `</p>
+            </div>
+          </td>
+          <td>
+            <div class = "top-artist-info">
+              <img class="artist-image" src =` +
+        topArtistImages[1] +
+        `">
+              <p class="top-artist-name">` +
+        topArtistNames[1] +
+        `</p>
+            </div>
+          </td>
+          <td>
+            <div class = "top-artist-info">
+              <img class="artist-image" src = "` +
+        topArtistImages[2] +
+        `">
+              <p class="top-artist-name">` +
+        topArtistNames[2] +
+        `</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="artist-grid-table-2">
+        <tr>
+          <td>
+            <div class = "top-artist-info">
+              <img class="artist-image" src = "` +
+        topArtistImages[3] +
+        `">
+              <p class="top-artist-name">` +
+        topArtistNames[3] +
+        `</p>
+            </div>
+          </td>
+          <td>
+            <div class = "top-artist-info">
+              <img class="artist-image" src = "` +
+        topArtistImages[4] +
+        `">
+              <p class="top-artist-name">` +
+        topArtistNames[4] +
+        `</p>
+            </div>
+          </td>
+        </tr>
+      </table>`
+    );
   });
   var seed_artists = [
     "2YZyLoL8N0Wb9xBt1NhZWg",

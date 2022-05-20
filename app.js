@@ -54,8 +54,8 @@ app.get("/home", function (req, res) {
   res.sendFile(__dirname + "/public/home.html");
 });
 
-app.get("/account", function (req, res) {
-  res.sendFile(__dirname + "/public/account.html");
+app.get("/profile", function (req, res) {
+  res.sendFile(__dirname + "/public/profile.html");
 });
 
 app.get("/login", function (req, res) {
@@ -146,13 +146,13 @@ app.get("/callback", function (req, res) {
   }
 });
 
-app.get("/getAccount", function (req, res) {
+app.get("/getProfile", function (req, res) {
   let params = {
     access_token: spotifyApi.getAccessToken(),
     refresh_token: spotifyApi.getRefreshToken(),
   };
   let searchParams = new URLSearchParams(params);
-  res.redirect("/account#" + searchParams.toString());
+  res.redirect("/profile#" + searchParams.toString());
 });
 
 app.get("/getHome", function (req, res) {
@@ -172,7 +172,6 @@ app.get("/getPlaylist", function (req, res) {
     data.body.tracks.items.map(function (t) {
       t.track.artists.map(function (artists) {
         artistIds.add(artists.id);
-        console.log(artists.id);
       });
     });
     return Array.from(artistIds);
