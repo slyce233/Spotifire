@@ -153,6 +153,7 @@ td {
 }
 .artist-image{
     max-height:10rem;
+    margin-left:1.2rem;
 }
 
 .artist-grid-desc{
