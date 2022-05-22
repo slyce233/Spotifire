@@ -24,15 +24,26 @@
         <input type="text" id="playlist-input-field" value placeholder="Please paste your spotify playlist link here!" size="75">
         <button class="button" id="get-playlist">Analyze</button>
         <div class="dropdown">
-          <button class="dropbtn">Playlist</button>
+          <button class="dropbtn">Playlist <i class="arrow down"></i></button>
           <div class="dropdown-content">
-            <a href="#">Track</a>
-            <a href="#">Album</a>
+            <p id="track-dropdown">Track</p>
+            <p id="album-dropdown">Album</p>
           </div>
         </div
         </div>
         <span class="tag is-warning" id="playlist-warning" hidden>Incorrect Format</span>
     </div>
+
+    <div class="track-info">
+      <div class="track-info-text">
+        <p>Track Name: Puffin on Zootiez</p>
+        <p>Artist: Future</p>
+        <p>Popularity: 80</p>
+        <p>Duration: 2:03 </p>
+      </div>
+      <div class="radarChart" style="display: inline-flex;"></div>
+    </div>
+    
 
 
     <div class="playlist-info" style = "visibility:hidden">

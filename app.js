@@ -228,6 +228,11 @@ app.get("/getTrack", function (req, res) {
   });
 });
 
+app.get("/searchTrack", function (req, res) {
+  spotifyApi.searchTracks().then(function (data) {
+    res.send(data);
+  });
+});
 app.listen(3000, function () {
   console.log("Server running on localhost 3000");
 });

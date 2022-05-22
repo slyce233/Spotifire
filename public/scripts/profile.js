@@ -49,7 +49,7 @@ $(document).ready(function () {
     var topArtistImages = [];
     for (let i = 0; i < data.body.items.length; i++) {
       topArtistNames.push(data.body.items[i].name);
-      topArtistImages.push(data.body.items[i].images[2].url);
+      topArtistImages.push(data.body.items[i].images[0].url);
     }
     console.log(topArtistNames, ":", topArtistImages);
     $(".artist-grid").html(
