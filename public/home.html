@@ -9,16 +9,13 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous"></script>
 </head>
   <body>
-    <div>
-      <a href="/getHome">
-        <img class="logo" src = "./images/Spotifire.png" class="py-2 px-2">
-      </a>
+    <img class="logo" src = "./images/Spotifire.png" class="py-2 px-2">
+    <div class="nav">
+      <a class="active" href="/getHome">Home</a> 
+      <a href="/getProfile">Profile</a>
+      <a href="/getSettings">Settings</a>
+      <a href="/logout">Logout</a>
     </div>
-    <nav class="navbar is-black">
-      <a class="navbar-item" href="/getProfile">Profile</a>
-      <a class="navbar-item" href="/getSettings">Settings</a>
-      <a class="navbar-item" href="/logout">Logout</a>
-    </nav>
 
     <div id="playlist-input">
         <input type="text" id="playlist-input-field" value placeholder="Please paste your spotify playlist link here!" size="75">
