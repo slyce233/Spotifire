@@ -2,6 +2,43 @@ var songIDs = [];
 
 $(document).ready(function () {
   $("#playlist-warning").hide();
+
+  $("#track-dropdown").on("click", function () {
+    if ($(".dropbtn").text() === "Playlist") {
+      $(".dropbtn").html(`Track<i class="arrow down"></i>`);
+      $("#track-dropdown").attr("class", "selected");
+      $("#playlist-dropdown").removeAttr("class");
+    } else if ($(".dropbtn").text() === "Album") {
+      $(".dropbtn").html(`Track<i class="arrow down"></i>`);
+      $("#track-dropdown").attr("class", "selected");
+      $("#album-dropdown").removeAttr("class");
+    }
+  });
+
+  $("#album-dropdown").on("click", function () {
+    if ($(".dropbtn").text() === "Playlist") {
+      $(".dropbtn").html(`Album<i class="arrow down"></i>`);
+      $("#album-dropdown").attr("class", "selected");
+      $("#playlist-dropdown").removeAttr("class");
+    } else if ($(".dropbtn").text() === "Track") {
+      $(".dropbtn").html(`Album<i class="arrow down"></i>`);
+      $("#album-dropdown").attr("class", "selected");
+      $("#track-dropdown").removeAttr("class");
+    }
+  });
+
+  $("#playlist-dropdown").on("click", function () {
+    if ($(".dropbtn").text() === "Album") {
+      $(".dropbtn").html(`Playlist<i class="arrow down"></i>`);
+      $("#playlist-dropdown").attr("class", "selected");
+      $("#album-dropdown").removeAttr("class");
+    } else if ($(".dropbtn").text() === "Track") {
+      $(".dropbtn").html(`Playlist<i class="arrow down"></i>`);
+      $("#playlist-dropdown").attr("class", "selected");
+      $("#track-dropdown").removeAttr("class");
+    }
+  });
+
   $("#get-playlist").on("click", function () {
     //function to start analyzing a playlist
     var playlistLink = $("#playlist-input-field").val();
@@ -96,7 +133,6 @@ $(document).ready(function () {
         });
         drawpiechart(popDist);
       });
-      $("#playlist-warning").hide();
     }
   });
 

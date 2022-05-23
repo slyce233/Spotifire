@@ -21,12 +21,14 @@
         <input type="text" id="playlist-input-field" value placeholder="Please paste your spotify playlist link here!" size="75">
         <button class="button" id="get-playlist">Analyze</button>
         <div class="dropdown">
-          <button class="dropbtn">Playlist <i class="arrow down"></i></button>
+          <button class="dropbtn">Playlist<i class="arrow down"></i></button>
           <div class="dropdown-content">
+            <p id="playlist-dropdown" class="selected">Playlist</p>
             <p id="track-dropdown">Track</p>
             <p id="album-dropdown">Album</p>
+
           </div>
-        </div
+        </div>
         </div>
         <span class="tag is-warning" id="playlist-warning" hidden>Incorrect Format</span>
     </div>
@@ -64,6 +66,5 @@
             </tr>
           </table>
     </div>   
-    <!-- https://open.spotify.com/playlist/37i9dQZF1DX0XUsuxWHRQd?si=5744bbbb0a9c41d6 -->
   </body>
 </html>
