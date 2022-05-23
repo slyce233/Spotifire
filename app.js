@@ -233,6 +233,14 @@ app.get("/searchTrack", function (req, res) {
     res.send(data);
   });
 });
+
+app.get("/getTrackAudioFeatures", function (req, res) {
+  var trackId = req.query.trackID;
+  spotifyApi.getAudioFeaturesForTrack(trackId).then(function (data) {
+    res.send(data);
+  });
+});
+
 app.listen(3000, function () {
   console.log("Server running on localhost 3000");
 });

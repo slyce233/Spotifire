@@ -59,7 +59,7 @@ td {
     align-items: center;
  }
 
- #playlist-input{
+ #input-div{
     position:absolute;
     width:100%;
     top:10rem;
@@ -72,13 +72,13 @@ td {
     margin-bottom: 1rem;
   }
   
-  #playlist-input-field {
+  #input-field {
     height:40px;
     border-radius:5px;
     opacity:1.0;
   }
 
- #get-playlist {
+ #analyze {
      color:#fff;
      background-color:#04AA6D;
      border:none;

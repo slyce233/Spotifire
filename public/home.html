@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="styles/main_styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="scripts/home.js"></script>
+    <script type="module" src="scripts/home.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous"></script>
 </head>
   <body>
@@ -17,18 +17,9 @@
       <a href="/logout">Logout</a>
     </div>
 
-    <div id="playlist-input">
-        <input type="text" id="playlist-input-field" value placeholder="Please paste your spotify playlist link here!" size="75">
-        <button class="button" id="get-playlist">Analyze</button>
-        <div class="dropdown">
-          <button class="dropbtn">Playlist<i class="arrow down"></i></button>
-          <div class="dropdown-content">
-            <p id="playlist-dropdown" class="selected">Playlist</p>
-            <p id="track-dropdown">Track</p>
-            <p id="album-dropdown">Album</p>
-
-          </div>
-        </div>
+    <div id="input-div">
+        <input type="text" id="input-field" value placeholder="Please paste your spotify playlist link here!" size="75">
+        <button class="button" id="analyze">Analyze</button>
         </div>
         <span class="tag is-warning" id="playlist-warning" hidden>Incorrect Format</span>
     </div>
