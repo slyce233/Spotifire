@@ -196,3 +196,8 @@ export function analyzeTrack(trackLink, trackID) {
   } 
 
 }
+
+function play(url) {
+  var audio = new Audio(url);
+  audio.play();
+}
