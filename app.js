@@ -1,11 +1,12 @@
 const express = require("express");
 const request = require("request-promise-native");
-var cors = require("cors");
-var cookieParser = require("cookie-parser");
-var SpotifyWebApi = require("spotify-web-api-node");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const SpotifyWebApi = require("spotify-web-api-node");
+require("dotenv").config();
 
-var client_id = "f69840b68d374e869dcc8cdaa5eae67a"; // Client id
-var client_secret = "1c1751addd44484b87566ff324df3902"; // Client secret
+var client_id = process.env.CLIENT_ID; // Client id
+var client_secret = process.env.CLIENT_SECRET; // Client secret
 var redirect_uri = "http://localhost:3000/callback"; // Redirect uri
 
 /**
