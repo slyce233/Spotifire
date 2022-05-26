@@ -282,7 +282,6 @@ export function RadarChart(parent_selector, data, options) {
   //////////// Create the container SVG and g /////////////
   /////////////////////////////////////////////////////////
   const parent = d3.select(parent_selector);
-
   //Remove whatever chart with the same id/class was present before
   parent.select("svg").remove();
 

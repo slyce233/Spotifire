@@ -39,6 +39,8 @@ export function analyzePlaylist(playlistLink, playlistID) {
         );
         $("#playlist-followers").text("Followers: " + followers);
         $(".playlist-info").attr("style", "visibility:visible");
+        $("#bar-chart").css("visibility","visible");
+        $("#pie-chart").css("visibility","visible");
       });
       for (let i = 0; i < songs.length; i++) {
         songIDs.push(songs[i].track.id);
@@ -166,6 +168,31 @@ export function analyzeTrack(trackLink, trackID) {
 
       // Draw the chart, get a reference the created svg element :
       RadarChart(".radarChart", data, radarChartOptions);
+
+      $.ajax({
+        //get playlist JSON information
+        url: "/getTrack",
+        type: "GET",
+        data: {
+          trackID: trackID,
+        },
+      }).done( function(data){
+        var image = data.body.album.images[1].url;
+        var name = data.body.name;
+        var artist = data.body.artists[0].name;
+        var popularity = data.body.popularity;
+        var duration = data.body.duration_ms;
+        console.log(data.body);
+        $(".track-info-text").html(`
+        <img class="track-image" src=`+ image + `>
+        <p>Track Name: `+ name + `</p>
+        <p>Artist: `+ artist + `</p>
+        <p>Popularity: `+ popularity + `</p>
+        <p>Duration: `+ duration + ` </p>`)
+      })
     });
-  }
+
+
+  } 
+
 }

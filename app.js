@@ -207,12 +207,14 @@ app.get("/getGenreSeeds", function (req, res) {
 app.get("/getRecommendations", function (req, res) {
   var seed_artists = req.query.seed_artists;
   var seed_genres = req.query.seed_genres;
+  var seed_tracks = req.query.seed_tracks;
   var min_popularity = req.query.min_popularity;
   var target_popularity = req.query.target_popularity;
   spotifyApi
     .getRecommendations({
       seed_artists: seed_artists,
       seed_genres: seed_genres,
+      seed_tracks: seed_tracks,
       min_popularity: min_popularity,
       target_popularity: target_popularity,
     })

@@ -1,9 +1,9 @@
 html {
-    height: 100%;
+    height: 150vh;
 }
 
 body {
-    height:130%;
+    height:150vh;
     background-color: #0a0a0a;
 }
 text{
@@ -136,35 +136,37 @@ td {
     color: #fff;
 }
 
+.account-grid{
+  width:100%;
+  display:flex;
+  justify-content: space-evenly;
+  position: absolute;
+  margin-top:7rem;
+  top:30%;
+  left:50%;
+  transform: translate(-50%,-30%);
+  padding:20px;
+}
 .account-card {
-    position: absolute;
-    top:10rem;
-    left:10rem;
     box-shadow: 0 4px 8px 0 rgba(151, 177, 138, 0.2);
     max-width: 300px;
-    margin: auto;
+    /* margin: auto; */
     font-family: arial;
     background-color: #04AA6D;
     border-radius: 6px;
-}
-.artist-grid{
-    position:absolute;
-    top:10rem;
-    left:35rem;
-    width:40%;
 }
 .artist-grid-table{
     border-spacing: 1rem;
     border-collapse: separate;
 }
 .artist-grid-table-2{
-    margin-left:6rem;
+    margin-left:5rem;
     border-spacing: 1rem;
     border-collapse: separate;
 }
 .artist-image{
     max-height:10rem;
-    margin-left:1.2rem;
+    width:160px;
 }
 
 .artist-grid-desc{
@@ -177,7 +179,7 @@ td {
     margin-left:3rem;
 }
 .top-artist-info{
-    width:200px;
+    max-width:160px;
 }
 
 .top-artist-name{
@@ -265,6 +267,7 @@ td {
     display:flex;
     justify-content: space-evenly;
     position: absolute;
+    margin-top:7rem;
     top:60%;
     left:50%;
     transform: translate(-50%,-60%);
@@ -274,4 +277,8 @@ td {
     font-size: 18px;
     font-weight: bold;
     margin-top:5rem;
+}
+
+.track-image{
+  max-height:12rem;
 }

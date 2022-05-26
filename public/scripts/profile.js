@@ -29,29 +29,38 @@ $(document).ready(function () {
   });
 
   var topTrackIds = [];
+  var topTrackNames = [];
   $.ajax({
     //get JSON information
     url: "/getTopTracks",
     type: "GET",
   }).done(function (data) {
+    console.log("Top Tracks:");
     for (let i = 0; i < data.body.items.length; i++) {
       topTrackIds.push(data.body.items[i].id);
+      topTrackNames.push(data.body.items[i].name);
+      console.log(data.body.items[i].id, ":", data.body.items[i].name);
     }
-    console.log("Top Tracks: ", topTrackIds);
+    // console.log(data.body.items);
+
   });
+
+  var topArtistIds = [];
+  var topArtistNames = [];
+  var topArtistImages = [];
 
   $.ajax({
     //get JSON information
     url: "/getTopArtists",
     type: "GET",
   }).done(function (data) {
-    var topArtistNames = [];
-    var topArtistImages = [];
+    console.log("Top Artists: ");
     for (let i = 0; i < data.body.items.length; i++) {
+      topArtistIds.push(data.body.items[i].id);
       topArtistNames.push(data.body.items[i].name);
       topArtistImages.push(data.body.items[i].images[0].url);
+      console.log(data.body.items[i].id, ":", data.body.items[i].name);
     }
-    console.log(topArtistNames, ":", topArtistImages);
     $(".artist-grid").html(
       `<h1 class="artist-grid-desc">Your Top 5 Artists This Month</h1>
       <table class="artist-grid-table">
@@ -68,7 +77,7 @@ $(document).ready(function () {
           </td>
           <td>
             <div class = "top-artist-info">
-              <img class="artist-image" src =` +
+              <img class="artist-image" src = "` +
         topArtistImages[1] +
         `">
               <p class="top-artist-name">` +
@@ -114,15 +123,13 @@ $(document).ready(function () {
       </table>`
     );
   });
-  var seed_artists = [
-    "2YZyLoL8N0Wb9xBt1NhZWg",
-    "1RyvyyTE3xzB2ZywiAwp0i",
-    "0WK3H9OErSn5zKOkOV5egm",
-  ];
+  var seed_artists = topArtistIds;
   var seed_genres = ["rap", "hip-hop"];
+  var seed_tracks = topTrackNames;
   var min_popularity = 65;
   var target_popularity = 80;
   var recommendationIds = [];
+  var recommendationNames = [];
   $.ajax({
     //get JSON information
     url: "/getRecommendations",
@@ -130,20 +137,24 @@ $(document).ready(function () {
     data: {
       seed_artists: seed_artists,
       seed_genres: seed_genres,
+      seed_tracks:seed_tracks,
       min_popularity: min_popularity,
       target_popularity: target_popularity,
     },
   }).done(function (data) {
+    console.log("Recommendations:");
     for (let i = 0; i < data.body.tracks.length; i++) {
       recommendationIds.push(data.body.tracks[i].id);
+      recommendationNames.push(data.body.tracks[i].name);
+      console.log(data.body.tracks[i].id, ":", data.body.tracks[i].name);
     }
-    console.log("Recommendations: ", recommendationIds);
+    // console.log("Recommendations: ", recommendationIds);
   });
   $.ajax({
     //get JSON information
     url: "/getGenreSeeds",
     type: "GET",
   }).done(function (data) {
-    console.log(data.body);
+    // console.log(data.body);
   });
 });

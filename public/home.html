@@ -13,23 +13,19 @@
     <div class="nav">
       <a class="active" href="/getHome">Home</a> 
       <a href="/getProfile">Profile</a>
-      <a href="/getSettings">Settings</a>
       <a href="/logout">Logout</a>
     </div>
 
     <div id="input-div">
-        <input type="text" id="input-field" value placeholder="Please paste your spotify playlist link here!" size="75">
+        <input type="text" id="input-field" value placeholder="Please paste your spotify link here!" size="75">
         <button class="button" id="analyze">Analyze</button>
         </div>
         <span class="tag is-warning" id="playlist-warning" hidden>Incorrect Format</span>
     </div>
 
-    <div class="track-info">
+    <div class="track-info" style="visibility:hidden;">
       <div class="track-info-text">
-        <p>Track Name: Puffin on Zootiez</p>
-        <p>Artist: Future</p>
-        <p>Popularity: 80</p>
-        <p>Duration: 2:03 </p>
+        
       </div>
       <div class="radarChart" style="display: inline-flex;"></div>
     </div>
@@ -52,8 +48,8 @@
     <div id="container"> 
         <table id="chart">
             <tr>
-                <td id ="bar-chart"></td>
-                <td id="pie-chart"></td>
+                <td id ="bar-chart"  style = "visibility:hidden"></td>
+                <td id="pie-chart"  style = "visibility:hidden"></td>
             </tr>
           </table>
     </div>   
