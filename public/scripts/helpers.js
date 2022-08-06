@@ -1,4 +1,6 @@
-import { compare, drawbarchart, drawpiechart, RadarChart } from "./d3.js";
+import { RadarChart } from "./radar.js";
+import { compare, drawbarchart } from "./bar.js";
+import { drawpiechart } from "./pie.js";
 var songIDs = [];
 
 export function analyzePlaylist(playlistLink, playlistID) {
@@ -39,8 +41,8 @@ export function analyzePlaylist(playlistLink, playlistID) {
         );
         $("#playlist-followers").text("Followers: " + followers);
         $(".playlist-info").attr("style", "visibility:visible");
-        $("#bar-chart").css("visibility","visible");
-        $("#pie-chart").css("visibility","visible");
+        $("#bar-chart").css("visibility", "visible");
+        $("#pie-chart").css("visibility", "visible");
       });
       for (let i = 0; i < songs.length; i++) {
         songIDs.push(songs[i].track.id);
@@ -176,25 +178,34 @@ export function analyzeTrack(trackLink, trackID) {
         data: {
           trackID: trackID,
         },
-      }).done( function(data){
+      }).done(function (data) {
         var image = data.body.album.images[1].url;
         var name = data.body.name;
         var artist = data.body.artists[0].name;
         var popularity = data.body.popularity;
         var duration = data.body.duration_ms;
         console.log(data.body);
-        $(".track-info-text").html(`
-        <img class="track-image" src=`+ image + `>
-        <p>Track Name: `+ name + `</p>
-        <p>Artist: `+ artist + `</p>
-        <p>Popularity: `+ popularity + `</p>
-        <p>Duration: `+ duration + ` </p>`)
-      })
+        $(".track-info-text").html(
+          `
+        <img class="track-image" src=` +
+            image +
+            `>
+        <p>Track Name: ` +
+            name +
+            `</p>
+        <p>Artist: ` +
+            artist +
+            `</p>
+        <p>Popularity: ` +
+            popularity +
+            `</p>
+        <p>Duration: ` +
+            duration +
+            ` </p>`
+        );
+      });
     });
-
-
-  } 
-
+  }
 }
 
 function play(url) {
