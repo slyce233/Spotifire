@@ -34,6 +34,7 @@ const scopes = [
   "user-read-private",
   "user-read-email",
   "user-top-read",
+  "user-library-read",
 ];
 
 var spotifyApi = new SpotifyWebApi({
@@ -192,7 +193,20 @@ app.get("/getTopArtists", function (req, res) {
 });
 
 app.get("/getTopTracks", function (req, res) {
-  spotifyApi.getMyTopTracks().then(function (data) {
+  var limit = req.params.limit;
+  var offset = req.params.offset;
+  console.log(req);
+  // console.log(res);
+  spotifyApi
+    .getMyTopTracks({ limit: limit, offset: offset })
+    .then(function (data) {
+      res.send(data);
+    });
+});
+
+app.get("/getSavedTracks", function (req, res) {
+  var limit = req.params.limit;
+  spotifyApi.getMySavedTracks({ limit: 50 }).then(function (data) {
     res.send(data);
   });
 });

@@ -1,2 +1,6 @@
 .env
 /node_modules
+public/ML/.cache
+public/ML/Pipfile
+public/ML/Pipfile.lock
+public/ML/datasets/SpotifyFeatures.csv

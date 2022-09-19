@@ -1,7 +1,5 @@
 // import { play } from "./helpers.js";
 $(document).ready(function () {
-
-  
   $.ajax({
     //get JSON information
     url: "/getMe",
@@ -36,22 +34,40 @@ $(document).ready(function () {
   var topTrackArtists = [];
   var topTrackImages = [];
 
-  var ids = ["pl0","pl1","pl2","pl3","pl4","pl5","pl6","pl7","pl8","pl9"]
+  var ids = [
+    "pl0",
+    "pl1",
+    "pl2",
+    "pl3",
+    "pl4",
+    "pl5",
+    "pl6",
+    "pl7",
+    "pl8",
+    "pl9",
+  ];
+
   $.ajax({
     //get JSON information
     url: "/getTopTracks",
     type: "GET",
+    data: {
+      limit: 50,
+      offset: 0,
+    },
   }).done(function (data) {
-    // console.log("Top Tracks:");
+    console.log("Top Tracks:");
     for (let i = 0; i < data.body.items.length; i++) {
       topTrackIds.push(data.body.items[i].id);
       topTrackNames.push(data.body.items[i].name);
       topTrackArtists.push(data.body.items[i].artists[0].name);
       topTrackImages.push(data.body.items[i].album.images[2].url);
-      // console.log(data.body.items[i].id, ":", data.body.items[i].name);
+      console.log(data.body.items[i].id, ":", data.body.items[i].name);
     }
-    // console.log(data.body.items);
-    $(".top-tracks-list").html(`<h1 class="track-grid-desc">Your Top 10 Tracks This Month</h1>
+    console.log(data.body.items);
+    $(
+      ".top-tracks-list"
+    ).html(`<h1 class="track-grid-desc">Your Top 10 Tracks</h1>
     <div class="row">
           <div class="col">
             <table class="tracks-table-1">
@@ -61,11 +77,18 @@ $(document).ready(function () {
             <table class="tracks-table-2">
             </table>
           </div>`);
-    for(let i = 0; i < 5; i++){
-      $(".tracks-table-1").append(`<tr class="outer-row-1">
-      <td class="track-image-td" rowspan="2"><img src = `+ topTrackImages[i] +` class="top-track-image"></td>
-      <td class="track-name-td">`+ topTrackNames[i] +`</td>
-      <td class="play-button-td"rowspan="2"><div id="`+ ids[i] +`" class="botón" onclick="this.classList.toggle('active')">
+    for (let i = 0; i < 5; i++) {
+      $(".tracks-table-1").append(
+        `<tr class="outer-row-1">
+      <td class="track-image-td" rowspan="2"><img src = ` +
+          topTrackImages[i] +
+          ` class="top-track-image"></td>
+      <td class="track-name-td">` +
+          topTrackNames[i] +
+          `</td>
+      <td class="play-button-td"rowspan="2"><div id="` +
+          ids[i] +
+          `" class="botón" onclick="this.classList.toggle('active')">
         <div class="fondo" x="0" y="0" width="200" height="200"></div>
         <div class="icono" width="200" height="200">
           <div class="parte izquierda" x="0" y="0" width="200" height="200" fill="#fff"></div>
@@ -75,14 +98,24 @@ $(document).ready(function () {
       </div></td>
     </tr>
     <tr class="outer-row-2">
-      <td class="artist-name-td">`+ topTrackArtists[i] +`</td>
-    </tr>`);
+      <td class="artist-name-td">` +
+          topTrackArtists[i] +
+          `</td>
+    </tr>`
+      );
     }
-    for(let i = 5; i < 10; i++){
-      $(".tracks-table-2").append(`<tr class="outer-row-1">
-      <td class="track-image-td" rowspan="2"><img src = `+ topTrackImages[i] +` class="top-track-image"></td>
-      <td class="track-name-td">`+ topTrackNames[i] +`</td>
-      <td class="play-button-td"rowspan="2"><div id="`+ ids[i] +`" class="botón" onclick="this.classList.toggle('active')">
+    for (let i = 5; i < 10; i++) {
+      $(".tracks-table-2").append(
+        `<tr class="outer-row-1">
+      <td class="track-image-td" rowspan="2"><img src = ` +
+          topTrackImages[i] +
+          ` class="top-track-image"></td>
+      <td class="track-name-td">` +
+          topTrackNames[i] +
+          `</td>
+      <td class="play-button-td"rowspan="2"><div id="` +
+          ids[i] +
+          `" class="botón" onclick="this.classList.toggle('active')">
         <div class="fondo" x="0" y="0" width="200" height="200"></div>
         <div class="icono" width="200" height="200">
           <div class="parte izquierda" x="0" y="0" width="200" height="200" fill="#fff"></div>
@@ -92,11 +125,12 @@ $(document).ready(function () {
       </div></td>
     </tr>
     <tr class="outer-row-2">
-      <td class="artist-name-td">`+ topTrackArtists[i] +`</td>
-    </tr>`);
+      <td class="artist-name-td">` +
+          topTrackArtists[i] +
+          `</td>
+    </tr>`
+      );
     }
-
-
   });
 
   var topArtistIds = [];
@@ -116,7 +150,7 @@ $(document).ready(function () {
       // console.log(data.body.items[i].id, ":", data.body.items[i].name);
     }
     $(".artist-grid").html(
-      `<h1 class="artist-grid-desc">Your Top 5 Artists This Month</h1>
+      `<h1 class="artist-grid-desc">Your Top 5 Artists</h1>
       <table class="artist-grid-table">
         <tr>
           <td>
@@ -177,6 +211,7 @@ $(document).ready(function () {
       </table>`
     );
   });
+
   var seed_artists = topArtistIds;
   var seed_genres = ["rap", "hip-hop"];
   var seed_tracks = topTrackNames;
@@ -191,12 +226,12 @@ $(document).ready(function () {
     data: {
       seed_artists: seed_artists,
       seed_genres: seed_genres,
-      seed_tracks:seed_tracks,
+      seed_tracks: seed_tracks,
       min_popularity: min_popularity,
       target_popularity: target_popularity,
     },
   }).done(function (data) {
-    // console.log("Recommendations:");
+    console.log("Recommendations:");
     for (let i = 0; i < data.body.tracks.length; i++) {
       recommendationIds.push(data.body.tracks[i].id);
       recommendationNames.push(data.body.tracks[i].name);
@@ -204,12 +239,4 @@ $(document).ready(function () {
     }
     // console.log("Recommendations: ", recommendationIds);
   });
-  $.ajax({
-    //get JSON information
-    url: "/getGenreSeeds",
-    type: "GET",
-  }).done(function (data) {
-    // console.log(data.body);
-  });
-
 });

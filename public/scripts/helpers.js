@@ -1,6 +1,6 @@
-import { RadarChart } from "./radar.js";
-import { compare, drawbarchart } from "./bar.js";
-import { drawpiechart } from "./pie.js";
+import { RadarChart } from "./charts/radar.js";
+import { compare, drawbarchart } from "./charts/bar.js";
+import { drawpiechart } from "./charts/pie.js";
 var songIDs = [];
 
 export function analyzePlaylist(playlistLink, playlistID) {
