@@ -33,7 +33,7 @@ $(document).ready(function () {
   var topTrackNames = [];
   var topTrackArtists = [];
   var topTrackImages = [];
-
+  var songDetails = [];
   var ids = [
     "pl0",
     "pl1",
@@ -62,9 +62,17 @@ $(document).ready(function () {
       topTrackNames.push(data.body.items[i].name);
       topTrackArtists.push(data.body.items[i].artists[0].name);
       topTrackImages.push(data.body.items[i].album.images[2].url);
-      console.log(data.body.items[i].id, ":", data.body.items[i].name);
+      songDetails.push({
+        name: data.body.items[i].name,
+        artist: data.body.items[i].artists[0].name,
+      });
+      console.log(
+        data.body.items[i].name,
+        ":",
+        data.body.items[i].artists[0].name
+      );
     }
-    console.log(data.body.items);
+    console.log(songDetails);
     $(
       ".top-tracks-list"
     ).html(`<h1 class="track-grid-desc">Your Top 10 Tracks</h1>
@@ -136,7 +144,6 @@ $(document).ready(function () {
   var topArtistIds = [];
   var topArtistNames = [];
   var topArtistImages = [];
-
   $.ajax({
     //get JSON information
     url: "/getTopArtists",

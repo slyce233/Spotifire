@@ -20,10 +20,12 @@ export function analyzePlaylist(playlistLink, playlistID) {
       console.log(data);
       $("#bar-chart").html("");
       $("#pie-chart").html("");
+      $(".container").css("visibility", "visible");
       var songs = data.body.tracks.items;
       var playlistImageLink = data.body.images[0].url; //Image to be sent out
       songs.sort(compare);
       drawbarchart(songs.slice(0, 5)); //get the top 5 most popular songs and graph them
+      var name = data.body.name;
       var description = data.body.description;
       var followers = data.body.followers.total;
       var imageURL = data.body.images[0].url;
@@ -36,10 +38,22 @@ export function analyzePlaylist(playlistLink, playlistID) {
       );
       image.addEventListener("load", (e) => {
         $(".playlist-image").html(e.target);
-        $("#playlist-description").text(
-          "Description: " + description.substring(0, 150)
+        $("#playlist-details").html(
+          `
+        <p id = "playlist-name"><strong>Name: </strong>` +
+            name +
+            `</p>
+        <p id = 'playlist-description'><strong>Description: </strong>` +
+            description.substring(0, 150) +
+            `</p>
+        <p id = "playlist-followers"><strong>Followers: </strong>` +
+            followers +
+            `</p>`
         );
-        $("#playlist-followers").text("Followers: " + followers);
+        // $("#playlist-description").text(
+        //   "Description: " + description.substring(0, 150)
+        // );
+        // $("#playlist-followers").text("Followers: " + followers);
         $(".playlist-info").attr("style", "visibility:visible");
         $("#bar-chart").css("visibility", "visible");
         $("#pie-chart").css("visibility", "visible");

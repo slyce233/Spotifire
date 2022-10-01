@@ -12,12 +12,12 @@ export function drawpiechart(data) {
     .append("g") //setup the chart layout
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-  var color = d3.scaleOrdinal([
-    "#6050DC",
-    "#D52DB7",
-    "#FF2E7E",
-    "#FF6B45",
-    "#FFAB05",
+  var myColor = d3.scaleOrdinal([
+    "#90EE90",
+    "#A7F432",
+    "#299617",
+    "#00563F",
+    "#013220",
   ]); //set the pie chart colours
 
   var pie = d3.pie().value(function (d) {
@@ -44,7 +44,7 @@ export function drawpiechart(data) {
   arc
     .append("path")
     .attr("fill", function (d) {
-      return color(d.data.distribution);
+      return myColor(d.data.distribution);
     })
     .transition()
     .ease(d3.easeCubic)
@@ -70,6 +70,8 @@ export function drawpiechart(data) {
     .text(function (d) {
       return d.data.distribution;
     });
+
+  pie.colors(color);
 
   function tweenPie(b) {
     //function to determine the start/end location to animate the pie chart

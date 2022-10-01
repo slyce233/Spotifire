@@ -195,10 +195,10 @@ app.get("/getTopArtists", function (req, res) {
 app.get("/getTopTracks", function (req, res) {
   var limit = req.params.limit;
   var offset = req.params.offset;
-  console.log(req);
+  // console.log(req);
   // console.log(res);
   spotifyApi
-    .getMyTopTracks({ limit: limit, offset: offset })
+    .getMyTopTracks({ limit: 50, offset: offset })
     .then(function (data) {
       res.send(data);
     });
