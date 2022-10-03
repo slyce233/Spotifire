@@ -40,13 +40,13 @@ export function analyzePlaylist(playlistLink, playlistID) {
         $(".playlist-image").html(e.target);
         $("#playlist-details").html(
           `
-        <p id = "playlist-name"><strong>Name: </strong>` +
+        <p id = "playlist-name" class = "playlist-descriptor"><strong class = "descriptor"> Name: </strong>` +
             name +
             `</p>
-        <p id = 'playlist-description'><strong>Description: </strong>` +
+        <p id = 'playlist-description' class = "playlist-descriptor"><strong class = "descriptor"> Description: </strong>` +
             description.substring(0, 150) +
             `</p>
-        <p id = "playlist-followers"><strong>Followers: </strong>` +
+        <p id = "playlist-followers" class = "playlist-descriptor"><strong class = "descriptor"> Followers: </strong>` +
             followers +
             `</p>`
         );
@@ -117,6 +117,7 @@ export function analyzeTrack(trackLink, trackID) {
     $("#playlist-warning").show();
     console.log("err");
   } else {
+    $(".container").css("visibility", "visible");
     $.ajax({
       //get playlist JSON information
       url: "/getTrackAudioFeatures",
@@ -204,16 +205,16 @@ export function analyzeTrack(trackLink, trackID) {
         <img class="track-image" src=` +
             image +
             `>
-        <p>Track Name: ` +
+        <p><strong class = "track-descriptor">Track Name: </strong>` +
             name +
             `</p>
-        <p>Artist: ` +
+        <p><strong class = "track-descriptor">Artist: </strong>` +
             artist +
             `</p>
-        <p>Popularity: ` +
+        <p><strong class = "track-descriptor">Popularity: </strong>` +
             popularity +
             `</p>
-        <p>Duration: ` +
+        <p><strong class = "track-descriptor">Duration: </strong>` +
             duration +
             ` </p>`
         );

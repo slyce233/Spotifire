@@ -54,10 +54,26 @@ td {
 }
 
 #login{
-    margin-top:12rem;
+    margin-top:4rem;
     display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+ }
+
+ .landing-div{
+  display: flex;
     justify-content: center;
     align-items: center;
+ }
+
+ .landing{
+    
+    width:30%;
+    height:30%;
+
+ }
+ .descriptor{
+ color: #fff;
  }
 
  #input-div{
@@ -76,7 +92,9 @@ td {
   #input-field {
     height:40px;
     border-radius:5px;
-    opacity:1.0;
+    /* opacity:1.0; */
+    background-color: #1a1918;
+    color: #fff;
   }
 
  #analyze {
@@ -102,8 +120,8 @@ td {
     width: 10rem;
     background-color: #1a1918;
     position:absolute;
-    top:25rem;
-    left:10rem;
+    top:45%;
+    left:5%;
     /* margin-left: auto;
     margin-right: auto; */
     border-spacing: 3rem;
@@ -113,22 +131,22 @@ td {
   }
 
   #container{
-    width:65rem;
+    width:65%;
     position:absolute;
-    top:20rem;
+    top:35%;
     left:30%;
     display: flex;
     align-items: center;
     justify-content: center ;
     background-color: #1a1918;
     border-radius: 10px;
-    padding-top: 30px;
     margin-left: auto;
     margin-right: auto;
   }
   #chart{
     margin-left: auto;
     margin-right: auto;
+    width:30%;
   }
   #x-text{
     font-size: 75%;
@@ -141,12 +159,9 @@ td {
   .arc path {
       stroke: #0a0a0a;
   }
-  #playlist-description{
+  .playlist-descriptor{
       color: #fff;
   }
-  #playlist-followers{
-    color: #fff;
-}
 
 .account-grid{
   width:100%;
@@ -160,32 +175,43 @@ td {
   padding:20px;
 }
 .account-card {
-    /* box-shadow: 0 4px 8px 0 rgba(151, 177, 138, 0.2); */
-    width:300px;
-    /* display:flex;
-    justify-content: space-evenly; */
-    margin-top:auto;
-    margin-bottom:auto;
-    /* margin: auto; */
-    /* font-family: arial; */
-    /* background-color: #04AA6D; */
-    /* border-radius: 6px; */
+    width:20%;
+    display:block;
+    justify-content: center; 
+    align-items: center;
+    background-color:#1a1918;
+    border-radius: 10px;
     color:#fff;
-    font-weight:bold;
+    /* font-weight:bold; */
 }
 
 .display-picture{
-  max-height: 250px;
-  max-width: 250px;
+  max-width: 100%;
+  /* margin-top: 15%;
+  margin-left: 15%; */
+  border-radius:10px 10px 0px 0px;;
+}
+.artist-grid{
+  background-color:#1a1918;
+  border-radius: 10px;
+  width:50%;
+  display:block;
+  justify-content: center;
+  align-items: center;
 }
 .artist-grid-table{
     border-spacing: 1rem;
     border-collapse: separate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .artist-grid-table-2{
-    margin-left:5rem;
     border-spacing: 1rem;
     border-collapse: separate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .artist-image{
     max-height:10rem;
@@ -288,7 +314,7 @@ td {
 
 
 .track-info {
-    width:80%;
+    width:65%;
     display:flex;
     justify-content: space-evenly;
     position: absolute;
@@ -296,12 +322,21 @@ td {
     top:60%;
     left:50%;
     transform: translate(-50%,-60%);
+    background-color: #1a1918;
+    border-radius: 10px;
+    padding:25px;
 }
 .track-info-text{
     color: #fff;
     font-size: 18px;
-    font-weight: bold;
-    margin-top:5rem;
+    /* font-weight: bold; */
+    margin-top: auto;
+    margin-bottom:auto;
+    width:25%;
+}
+
+.track-descriptor{
+  color:#fff;
 }
 
 .track-grid-desc{
@@ -310,6 +345,9 @@ td {
   text-align: left;
   font-weight: bold;
   /* padding-left:12rem; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* .tracks-table-1{
   height:
@@ -328,6 +366,9 @@ td {
   position: absolute;
   top:80%;
   left:10%;
+  background-color: #1a1918;
+  border-radius: 10px;
+
 }
 .row {
   margin-left:-5px;

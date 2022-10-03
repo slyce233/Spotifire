@@ -1,13 +1,14 @@
 export function drawpiechart(data) {
   //function to draw the pie chart
-  const width = 500; //set chart sizing
+  const width = 450; //set chart sizing
   const height = 550;
   const radius = Math.min(width, 350) / 2;
   var svg = d3
     .select("#pie-chart") //make an svg tag in the HTML program
     .append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .style("margin-top","20px");
   var g = svg
     .append("g") //setup the chart layout
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -56,7 +57,9 @@ export function drawpiechart(data) {
     .attr("transform", "translate(" + (width / 2 - 220) + "," + 35 + ")")
     .append("text")
     .text("Popularity Distribution")
-    .attr("class", "title");
+    .attr("class", "title")
+    .style("font-size","1.5em")
+    .style("text-align","right");
 
   arc
     .append("text") //set the data labels

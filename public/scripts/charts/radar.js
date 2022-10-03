@@ -204,7 +204,7 @@ export function RadarChart(parent_selector, data, options) {
   axis
     .append("text")
     .attr("class", "legend")
-    .style("font-size", "11px")
+    .style("font-size", "12px")
     .attr("text-anchor", "middle")
     .attr("dy", "0.35em")
     .attr(

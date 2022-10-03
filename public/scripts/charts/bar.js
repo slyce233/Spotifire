@@ -18,8 +18,8 @@ export function drawbarchart(data) {
     var title = `Top ${data.length} Highest Rating Songs`;
   }
   const margin = 50; //set chart sizing
-  const width = 500;
-  const height = 550;
+  const width = 400;
+  const height = 450;
   const chartWidth = width - 2 * margin;
   const chartHeight = height - 2 * margin;
   let maxVal =
@@ -40,13 +40,15 @@ export function drawbarchart(data) {
     .select("#bar-chart") //make an svg tag in the HTML program
     .append("svg")
     .attr("width", width)
-    .attr("height", height + 100);
+    .attr("height", height + 100)
+    .style("margin-top","20px");
   svg
     .append("text") //set the title
     .attr("x", width / 2)
     .attr("y", margin / 1.5)
     .attr("text-anchor", "middle")
     .attr("class", "title")
+    .style("font-size","1.5em")
     .text(title);
   const g = svg
     .append("g") //setup the chart layout
